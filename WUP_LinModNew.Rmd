@@ -96,7 +96,7 @@ As the grip strength increases the sims increases. The spread of the points arou
 ```{r}
 cor(SIMS~GRIP,data=data)
 ```
- The correlation is 0.63 which shows that grip plot is related to sim score
+ The correlation is 0.63 which shows that grip plot is related to sim score.
 
 
 
@@ -130,11 +130,32 @@ predict(model.2, newdata, interval="predict")
 
 ## Model 3 SIM~ARM+GRIP
 
-### Numerical results (cor)
 
+
+### GRAPHICAL RESULTS 
+```{r}
+model.3 <- lm(SIMS~ARM+GRIP,data=data)
+plot(SIMS~ARM+GRIP,data=data)
+abline(model.3, col='red')
+```
 `
+
+
+### Numerical results 
+
+
+```{r}
+cor(SIMS~ARM+GRIP,data=data)
+```
+
   
-### Inferential  (Build 2-dimentional model.3)
+### Inferential  RESULTS (Build 2-dimentional model.3)
+
+```{r}
+model.3 <- lm(SIMS~ARM+GRIP,data=data)
+summary.lm(model.3)
+```
+
 
 #### predict model.3 at target point
   

@@ -121,7 +121,7 @@ predict(model.2, newdata, interval="predict")
 ```
 
 
-
+The prediction interval is from 0.15
 
 
 #### now add the model fit to our plot for model.2
@@ -135,10 +135,10 @@ predict(model.2, newdata, interval="predict")
 ### GRAPHICAL RESULTS 
 ```{r}
 model.3 <- lm(SIMS~ARM+GRIP,data=data)
-plot(SIMS~ARM+GRIP,data=data)
-abline(model.3, col='red')
+print(summary(model.3))
 ```
-`
+
+As arm plus grip strength goes up, the simulation indicates that the sims goes up.
 
 
 ### Numerical results 
@@ -147,7 +147,7 @@ abline(model.3, col='red')
 ```{r}
 cor(SIMS~ARM+GRIP,data=data)
 ```
-
+The correlation is 0.73 which shows that arm strength is related to sims score.
   
 ### Inferential  RESULTS (Build 2-dimentional model.3)
 
@@ -156,8 +156,8 @@ model.3 <- lm(SIMS~ARM+GRIP,data=data)
 summary.lm(model.3)
 ```
 
+Both the intercept and the coefficient ARM and GRIP strength are significant different from 0
 
-#### predict model.3 at target point
   
 
 ## Comparing nested models ANOVA Test
@@ -166,4 +166,35 @@ summary.lm(model.3)
 ### Model.2 vs Model.3
 
 ## Informally compare Model.1 with model.2
+
+```{r}
+anova(model.3,model.1)
+```
+The p value is .00000499 so i reject the null hypothesis. model 1 is better than model two becasue rss for model 1 is smaller.
+
+
+
+
+
+```{r}
+anova(model.3,model.2)
+```
+
+
+The model 3 is smaller then model 2 because the rss for model 3 is smaller.
+
+
+# discussion and conclusion
+
+
+In regards to the original question comparing both arm and grip strength to determine which is the best.Model 3 is the best because it has a smaller rss.
+than model one and model two.
+
+
+
+
+
+
+
+
 
